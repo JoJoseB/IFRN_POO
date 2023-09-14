@@ -1,17 +1,12 @@
-import random
+import random,os
 class LISTA:
     
     # Variaveis privadas
     __lista = None
+    __caminho_prog = os.path.dirname(__file__)
 
-    # Construtor gera lista de números aleatórios com base no valores dados
-    def __init__(self,tamanho_lista = 10 ,min_lista = 1,max_lista = 10):
-        if tamanho_lista > 0:
-            self.__lista = list()        
-            for _ in range(tamanho_lista):
-                self.__lista.append(random.randint(min_lista, max_lista))
-        pass
 
+    #Métodos privados com os algoritmos de ordenação
     def __bubble(self):
         tam = len(self.__lista)
         for a in range(tam - 1):
@@ -40,15 +35,26 @@ class LISTA:
                     primeira_pos = b
             self.__lista[a], self.__lista[primeira_pos] = self.__lista[primeira_pos],self.__lista[a]
         return self.__lista
+
+    # Construtor gera lista de números aleatórios com base no valores dados
+    def __init__(self,tamanho_lista = 10 ,min_lista = 1,max_lista = 10):
+        if tamanho_lista > 0:
+            self.__lista = list()        
+            for _ in range(tamanho_lista):
+                self.__lista.append(random.randint(min_lista, max_lista))
+        pass
     
     # Metodo de chamada do objeto sem chamar método
     def __call__(self, ordenacao):
-        SORT = {'bubble':self.__bubble,
+        __sort = {'bubble':self.__bubble,
                 'selection':self.__selection,
                 'insertion':self.__insertion,
-        }
-        
-        SORT[ordenacao.lower()]()
+                }
+    
+        __sort[ordenacao.lower()]()
+
+    def SALVAR(self):
+
 
     #####################
     def EXIBIR_LISTA(self):

@@ -1,4 +1,5 @@
-from CLASSES import LISTA
+#from CLASSES import LISTA
+import os
 
 '''var = LISTA()
 print(var.EXIBIR_LISTA())
@@ -15,9 +16,10 @@ print(var3.EXIBIR_LISTA())
 var3('selection')
 print(var3.EXIBIR_LISTA())
 
-
-'''
 var = LISTA()
 print(var.EXIBIR_LISTA())
-var('BUBBLE')
+var('insertion')
 print(var.EXIBIR_LISTA())
+'''
+caminho_prog = os.path.dirname(__file__)
+print(caminho_prog)
