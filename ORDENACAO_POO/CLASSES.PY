@@ -5,7 +5,6 @@ class LISTA:
     __lista = None
     __caminho_prog = os.path.dirname(__file__)
 
-
     #Métodos privados com os algoritmos de ordenação
     def __bubble(self):
         tam = len(self.__lista)
@@ -53,9 +52,11 @@ class LISTA:
     
         __sort[ordenacao.lower()]()
 
-    def SALVAR(self):
-
-
+    def SALVAR(self, nome_arq = 'lista'):
+        with open(self.__caminho_prog + '\\' + nome_arq + '.txt','w') as arquivo_a:
+            arquivo_a.write(str(self.__lista))
     #####################
     def EXIBIR_LISTA(self):
-        return self.__lista
+        print(self.__lista)
+        print(self.__caminho_prog)
+        return
