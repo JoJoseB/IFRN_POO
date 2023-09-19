@@ -1,23 +1,10 @@
-#from CLASSES import LISTA
-import os
-from CLASSES import LISTA
+from objetos import LISTA 
 
-
-'''var = LISTA()
-print(var.EXIBIR_LISTA())
-var('Bubble')
-print(var.EXIBIR_LISTA())
-
-var2 = LISTA()
-print(var2.EXIBIR_LISTA())
-var2('insertion')
-print(var2.EXIBIR_LISTA())
-
-var3 = LISTA()
-print(var3.EXIBIR_LISTA())
-var3('selection')
-print(var3.EXIBIR_LISTA())
-'''
-var = LISTA()
+var = LISTA(10,1,10)
+var2 = var.EXIBIR_LISTA()
+var('bubble')
 var.EXIBIR_LISTA()
 var.SALVAR()
+
+var3 = LISTA.SELECTION(var2)
+print(var3)
