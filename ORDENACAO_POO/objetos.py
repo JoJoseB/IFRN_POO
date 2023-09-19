@@ -4,7 +4,12 @@ class LISTA:
     # Variaveis privadas
     __lista = None
 
-    #Métodos privados com os algoritmos de ordenação
+    # Métodos privados com os algoritmos de ordenação, os algoritmos são:
+    #   Bubble sort
+    #   Insertion sort
+    #   Selection sort
+    #   Bogo sort
+
     def __bubble(self):
         tam = len(self.__lista)
         for a in range(tam - 1):
@@ -57,7 +62,7 @@ class LISTA:
             raise Exception('argumento min_lista deve ser menor que max_lista')
         pass
     
-    # Metodo de chamada do objeto sem chamar método
+    # Metodo de chamada do objeto sem chamada de método para utilizar os algoritmos na lista criada pelo objeto
     def __call__(self, ordenacao:str):
         if isinstance(ordenacao,str) and ordenacao.capitalize() in ["Bubble","Selection","Insertion"]:
             pass
@@ -70,24 +75,28 @@ class LISTA:
                 }
         __sort[ordenacao.lower()]()
 
-    def SALVAR(self, nome_arq = 'lista'):
-        __arq = open(str(nome_arq) + '.txt', 'w')
-        __arq.write(str(self.__lista))
-        __arq.close()
-    
+    # Métodos públicos que recebem uma lista externa e ordena conforme a lista dada nos argumentos e salva em um arquivo externo
+
     def BUBBLE(lista:list):
         if isinstance(lista,list):
             pass
         else:
             raise TypeError(f'{lista} não é uma lista')
+        
+        __arq = open('Bubble.txt','w')
+        __arq.write(str(lista))
+        __arq.close()
+
         tam = len(lista)
         for a in range(tam - 1):
             for b in range(tam - 1):
                 if lista[b] > lista[a + 1]:
                     lista[b],lista[a + 1] = lista[a + 1], lista[b]
-        __arq = open('Bubble.txt','w')
+
+        __arq = open('Bubble.txt','a')
         __arq.write(str(lista))
         __arq.close()
+
         return lista
     
     def INSERTATION(lista:list):
@@ -95,7 +104,12 @@ class LISTA:
             pass
         else:
             raise TypeError(f'{lista} não é uma lista')
+        
+        __arq = open('Insertion.txt','w')
+        __arq.write(str(lista))
+        __arq.close()
         tam = len(lista)
+
         for a in range(1, tam):
             num_atual = lista[a]
             b = a - 1
@@ -103,7 +117,8 @@ class LISTA:
                 lista[b+1] = lista[b]
                 b -= 1
             lista[b + 1] = num_atual
-        __arq = open('Insertion.txt','w')
+
+        __arq = open('Insertion.txt','a')
         __arq.write(str(lista))
         __arq.close()
         return lista
@@ -113,6 +128,11 @@ class LISTA:
             pass
         else:
             raise TypeError(f'{lista} não é uma lista')
+        
+        __arq = open('Selection.txt','w')
+        __arq.write(str(lista))
+        __arq.close()
+
         tam = len(lista)
         for a in range(tam):
             primeira_pos = a
@@ -120,6 +140,7 @@ class LISTA:
                 if lista[b] < lista[primeira_pos]:
                     primeira_pos = b
             lista[a], lista[primeira_pos] = lista[primeira_pos],lista[a]
+
         __arq = open('Selection.txt','w')
         __arq.write(str(lista))
         __arq.close()
@@ -130,16 +151,29 @@ class LISTA:
             pass
         else:
             raise TypeError(f'{lista} não é uma lista')
+        
+        __arq = open('Bogo.txt','w')
+        __arq.write(str(lista))
+        __arq.close()
+
         while lista != sorted(lista):
             n = len(lista)
             for i in range(0, n):
                 r = random.randint(0,n-1)
                 lista[i],lista[r] = lista[r],lista[i]
+
         __arq = open('Bogo.txt','w')
         __arq.write(str(lista))
         __arq.close()
         return lista
     
+    # Método para exibir a lista criada pelo objeto e um método para salvar em um arquivo externo a lista
+
     def EXIBIR_LISTA(self):
         print(self.__lista)
         return self.__lista
+    
+    def SALVAR(self, nome_arq = 'lista'):
+        __arq = open(str(nome_arq) + '.txt', 'w')
+        __arq.write(str(self.__lista))
+        __arq.close()
