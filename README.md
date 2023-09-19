@@ -19,5 +19,11 @@ Espero que este repositório seja útil para o seu aprendizado e prática da Pro
 
 Aproveite o passeio pelo mundo divertido da POO em Python! Se tiver dúvidas, requisite nas issues.
 
+## Breve resumo de cada projeto de estudo
+
+[ORDENACAO_POO](https://github.com/JoJoseB/IFRN_POO/tree/main/ORDENACAO_POO) -> Este projeto de estudo se concentra na aplicação da Programação Orientada a Objetos (POO) em Python para criar ordenadores de listas como objetos. O objetivo principal é desenvolver classes e métodos que permitem a criação e manipulação de listas de forma organizada e eficiente.
+
+
+
 ## Licença
 Este repositório está sob a Licença MIT - confira o arquivo [LICENSE](https://github.com/JoJoseB/IFRN_POO/blob/main/LICENSE) para detalhes.
