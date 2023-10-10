@@ -21,9 +21,9 @@ Aproveite o passeio pelo mundo divertido da POO em Python! Se tiver dúvidas, re
 
 ## Breve resumo de cada projeto de estudo
 
-[ORDENACAO_POO](https://github.com/JoJoseB/IFRN_POO/tree/main/ORDENACAO_POO) -> Este projeto de estudo se concentra na aplicação da Programação Orientada a Objetos (POO) em Python para criar ordenadores de listas como objetos. O objetivo principal é desenvolver classes e métodos que permitem a criação e manipulação de listas de forma organizada e eficiente.
+[BASICO](https://github.com/JoJoseB/IFRN_POO/tree/main/BASICO) -> Este projeto de estudo se concentra na aplicação da Programação Orientada a Objetos (POO) em Python para criar ordenadores de listas como objetos. O objetivo principal é desenvolver classes e métodos que permitem a criação e manipulação de listas de forma organizada e eficiente, e colocando em prática os fundamentos de Programação Orientada a Objetos (POO).
 
-
+[AGREGACAO](https://github.com/JoJoseB/IFRN_POO/tree/main/BASICO) -> Este projeto de programação orientada a objetos em Python exemplifica o uso de agregação como um dos principais conceitos de design. A agregação é uma relação entre objetos em que um objeto contém ou é composto por outros objetos. Neste projeto, exploramos cenários onde a agregação é fundamental para modelar e implementar sistemas complexos de forma modular e reutilizável.
 
 ## Licença
 Este repositório está sob a Licença MIT - confira o arquivo [LICENSE](https://github.com/JoJoseB/IFRN_POO/blob/main/LICENSE) para detalhes.
