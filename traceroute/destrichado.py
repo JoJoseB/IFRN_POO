@@ -62,7 +62,7 @@ print(sock)
 
 # Definindo o valor da opção de soquete fornecida. As constantes simbólicas necessárias são definidas no módulo soquete (SO_* etc.). O valor pode ser um número inteiro, None ou um objeto semelhante a bytes representando um buffer. No último caso, cabe ao chamador garantir que a bytestring contenha os bits apropriados (consulte a estrutura do módulo integrado opcional para obter uma maneira de codificar estruturas C como bytestrings). Quando o valor é definido como Nenhum, o argumento optlen é necessário
 
-# Inves de socket.SOL_IP sera utilizado socket.IPPROTP_IP
+# Inves de socket.SOL_IP sera utilizado socket.IPPROTO_IP
 sock.setsockopt(socket.IPPROTO_IP, socket.IP_TTL,ttl)
 print(sock)
 
