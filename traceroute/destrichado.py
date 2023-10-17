@@ -1,3 +1,13 @@
+'''
+REFERENCIAS:
+https://github.com/python/cpython/issues/101960
+https://pt.wikipedia.org/wiki/Internet_Control_Message_Protocol
+https://docs.python.org/3/library/struct.html
+https://pypi.org/project/netifaces/#files
+https://learn.microsoft.com/pt-br/windows/win32/api/winsock/nf-winsock-ioctlsocket
+https://learn.microsoft.com/pt-br/windows/win32/api/winsock2/nf-winsock2-wsaioctl?redirectedfrom=MSDN
+'''
+
 import socket
 import struct
 import sys
@@ -43,7 +53,7 @@ sock = socket.socket(socket.AF_INET,socket.SOCK_RAW,protocol)
 print(sock)
 
 # bind socket com o ip da inteface
-sock.bind((def_ip,0))
+sock.bind((def_ip,1))
 print(sock)
 
 # configurando a função ioctlsocket controla o modo de E/S de um soquete.
@@ -51,7 +61,9 @@ sock.ioctl(socket.SIO_RCVALL, socket.RCVALL_ON)
 print(sock)
 
 # Definindo o valor da opção de soquete fornecida. As constantes simbólicas necessárias são definidas no módulo soquete (SO_* etc.). O valor pode ser um número inteiro, None ou um objeto semelhante a bytes representando um buffer. No último caso, cabe ao chamador garantir que a bytestring contenha os bits apropriados (consulte a estrutura do módulo integrado opcional para obter uma maneira de codificar estruturas C como bytestrings). Quando o valor é definido como Nenhum, o argumento optlen é necessário
-sock.setsockopt(socket.SOL_SOCKET, socket.IP_TTL,ttl)
+
+# Inves de socket.SOL_IP sera utilizado socket.IPPROTP_IP
+sock.setsockopt(socket.IPPROTO_IP, socket.IP_TTL,ttl)
 print(sock)
 
 #utilizando funcao para criar um checksum
@@ -87,11 +99,11 @@ packet = header + data
 print(packet)
 
 # Enviando a requisição icmp para o destino
-sock.sendto(packet,(dest_addr,0))
+sock.sendto(packet,(dest_addr,1))
 print(sock)
 
 #recebendo resposta do destino
-pacote_recebido,addr = sock.recvfrom(1024)
+pacote_recebido,addr = sock.recvfrom(4096)
 print(pacote_recebido,addr)
 
 #destrinchando o icmp de resposta
