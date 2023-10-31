@@ -135,7 +135,7 @@ def tracert(destination, timeout=5, maxRetries=3, maxHops=30, DEBUG=False):
 
 
 #----------------------------------------------------------------------------------------------
-hops = tracert (input('Destino: '), DEBUG=True)
+hops = tracert(input('Destino: '), DEBUG=True)
 print (hops)
 
 # Chamada no servidor TCP a ser tomada como referência
