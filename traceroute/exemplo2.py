@@ -2,15 +2,15 @@
 REFERENCIAS
 https://itecnote.com/tecnote/python-raw-sockets-windows-sniffing-ethernet-frames/
 '''
-
 import socket
 import time
 import struct
-s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_ICMP)
-s.bind(('127.0.0.1', socket.IPPROTO_ICMP))
-s.ioctl(socket.SIO_RCVALL, socket.RCVALL_MAX)
-count = 0
 
+s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_IP)
+s.bind(('192.168.0.11', socket.IPPROTO_IP))
+s.ioctl(socket.SIO_RCVALL, socket.RCVALL_MAX)
+
+count = 0
 while True:
     count += 1
     pkt,origem = s.recvfrom(1024)
@@ -19,27 +19,15 @@ while True:
         break
 
 tam = len(pkt)
-teste = struct.unpack(f'! {tam}B', pkt)
-pkt_ex = []
+version_ihl, dscp_ecn, t_len, id, flag_frag,ttl, proto, chksum, src_ip, src_ip2, src_ip3, src_ip4, dst_ip, dst_ip2, dst_ip3, dst_ip4 = struct.unpack(f'! 2b 3H B b H 8B', pkt[0:20])
+print(version_ihl, dscp_ecn, t_len, id, flag_frag, ttl, proto, chksum, src_ip,src_ip2,src_ip3,src_ip4, dst_ip, dst_ip2, dst_ip3, dst_ip4)
+
+'''pkt_x = []
 pkt_bin= []
 cont = 0
 for a in teste:
-    pkt_ex.append(hex(a))
+    pkt_x.append(format(a,'x'))
 for a in teste:
-    pkt_bin.append(format(a,'#010b'))
-print(pkt_ex)
-print(pkt_bin)
-
-'''teste2 = [0x45, 0x0, 0x0, 0x3c, 0xf1, 0x6c, 0x0, 0x0, 0x80, 0x1, 0x0, 0x0, 0xa, 0x19, 0x3, 0x77, 0xa, 0x19, 0x1, 0xb8, 0x0, 0x0, 0x54, 0x97, 0x0, 0x1, 0x0, 0xc4, 0x61, 0x62, 0x63, 0x64, 0x65, 0x66, 0x67, 0x68, 0x69, 0x6a, 0x6b, 0x6c, 0x6d, 0x6e, 0x6f, 0x70, 0x71, 0x72, 0x73, 0x74, 0x75, 0x76, 0x77, 0x61, 0x62, 0x63, 0x64, 0x65, 0x66, 0x67, 0x68, 0x69]'''
-
-'''pkt_bin = []
-for a in teste2:
-    pkt_bin.append(format(a,'#010b'))
-
-print(pkt_bin)
-
-pkt_dec = []
-for a in teste2:
-    pkt_dec.append(int(a))
-
-print(pkt_dec)'''
+    pkt_bin.append(format(a,'b'))
+print(pkt_x)
+print(pkt_bin)'''
