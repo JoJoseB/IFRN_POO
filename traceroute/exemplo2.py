@@ -6,7 +6,6 @@ https://itecnote.com/tecnote/python-raw-sockets-windows-sniffing-ethernet-frames
 import socket
 import time
 import struct
-
 s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_ICMP)
 s.bind(('127.0.0.1', socket.IPPROTO_ICMP))
 s.ioctl(socket.SIO_RCVALL, socket.RCVALL_MAX)
@@ -19,16 +18,28 @@ while True:
     if count == 1:
         break
 
-
-teste = struct.unpack('! 22B hhhhbb', pkt[:32])
-print(teste)
+tam = len(pkt)
+teste = struct.unpack(f'! {tam}B', pkt)
+pkt_ex = []
+pkt_bin= []
 cont = 0
-#for a in teste:
-    #print(bin(teste[cont]))
-    #print(hex(teste[cont]))
-    #cont += 1
+for a in teste:
+    pkt_ex.append(hex(a))
+for a in teste:
+    pkt_bin.append(format(a,'#010b'))
+print(pkt_ex)
+print(pkt_bin)
 
-print(hex(teste[-1]))
-print(int(teste[-1]))
-print(chr(teste[-1]))
-print(chr(teste[-2]))
+'''teste2 = [0x45, 0x0, 0x0, 0x3c, 0xf1, 0x6c, 0x0, 0x0, 0x80, 0x1, 0x0, 0x0, 0xa, 0x19, 0x3, 0x77, 0xa, 0x19, 0x1, 0xb8, 0x0, 0x0, 0x54, 0x97, 0x0, 0x1, 0x0, 0xc4, 0x61, 0x62, 0x63, 0x64, 0x65, 0x66, 0x67, 0x68, 0x69, 0x6a, 0x6b, 0x6c, 0x6d, 0x6e, 0x6f, 0x70, 0x71, 0x72, 0x73, 0x74, 0x75, 0x76, 0x77, 0x61, 0x62, 0x63, 0x64, 0x65, 0x66, 0x67, 0x68, 0x69]'''
+
+'''pkt_bin = []
+for a in teste2:
+    pkt_bin.append(format(a,'#010b'))
+
+print(pkt_bin)
+
+pkt_dec = []
+for a in teste2:
+    pkt_dec.append(int(a))
+
+print(pkt_dec)'''
