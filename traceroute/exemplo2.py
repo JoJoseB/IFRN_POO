@@ -19,8 +19,13 @@ while True:
         break
 
 tam = len(pkt)
+
 version_ihl, dscp_ecn, t_len, id, flag_frag,ttl, proto, chksum, src_ip, src_ip2, src_ip3, src_ip4, dst_ip, dst_ip2, dst_ip3, dst_ip4 = struct.unpack(f'! 2b 3H B b H 8B', pkt[0:20])
 print(version_ihl, dscp_ecn, t_len, id, flag_frag, ttl, proto, chksum, src_ip,src_ip2,src_ip3,src_ip4, dst_ip, dst_ip2, dst_ip3, dst_ip4)
+'''rv_dest_ip = struct.pack(f'4B',dst_ip, dst_ip2, dst_ip3, dst_ip4)'''
+'''print(rv_dest_ip)
+teste = socket.inet_ntoa(rv_dest_ip)
+print(teste)'''
 
 '''pkt_x = []
 pkt_bin= []
