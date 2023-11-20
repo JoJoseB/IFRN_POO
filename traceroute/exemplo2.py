@@ -6,7 +6,7 @@ import socket
 import time
 import struct
 
-interface = socket.gethostbyname(socket.gethostname())
+interface = '10.0.2.15'
 s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_TCP)
 s.bind((interface,socket.IPPROTO_TCP))
 timeout = time.time() + 5
