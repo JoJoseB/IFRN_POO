@@ -22,6 +22,7 @@ def achar_ip_porta():
     return ip,port
 
 def client(conn):
+    sniffer = SNIFFER()
     while True:
         comando = conn.recv(64).decode()
         print(comando)
@@ -29,17 +30,20 @@ def client(conn):
             print('conexao fechada')
             conn.close()
             break
+        if comando == 'pacote':
+            sniffer.getpacket()
+            sniffer.packet_unpack()
 
 s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 ip,port = achar_ip_porta()
 s.bind((ip,int(port)+1))
 s.listen()
 
-sniffer = SNIFFER()
-
 while True:
     conn,addr = s.accept()
-    print('conexão aceita')
+    print(f'Cliente {addr} aceita')
     t_client = threading.Thread(target=client,args=(conn,))
     t_client.start()
     print('thread no ar')
+
+sniffer = SNIFFER()
