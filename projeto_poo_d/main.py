@@ -31,11 +31,13 @@ def client(conn):
             conn.close()
             break
         if comando == 'pacote':
-            sniffer.getpacket()
-            sniffer.packet_unpack()
+            pacotes = sniffer.getpacket()
+            #sniffer.packet_unpack()
+            conn.send(str(pacotes).encode())
 
 s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 ip,port = achar_ip_porta()
+print(port)
 s.bind((ip,int(port)+1))
 s.listen()
 
@@ -45,5 +47,3 @@ while True:
     t_client = threading.Thread(target=client,args=(conn,))
     t_client.start()
     print('thread no ar')
-
-sniffer = SNIFFER()

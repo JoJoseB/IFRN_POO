@@ -19,13 +19,23 @@ class SNIFFER:
     
     def getpacket(self,tempo=5):
         __timeout = time.time() + tempo
+        __pkt_send = __origem_send = []
         while True:
             __pkt,__origem = self.s.recvfrom(65535)
-            with open('packet.txt','ab') as f:
+            __pkt_send.append(__pkt)
+            __origem_send.append(__origem)
+            if time.time() >= __timeout:
+                print(__pkt_send)
+                print(__origem_send)
+                break
+        return __pkt_send,__origem_send
+    
+'''            with open('packet.txt','ab') as f:
                 f.write(__pkt)
             if time.time() >= __timeout:
-                break
-    
+                break'''
+
+'''
     def packet_unpack(self):
         with open('packet.txt','rb') as f:
             teste = f.readline()
@@ -48,4 +58,4 @@ class SNIFFER:
             flag_rst = (offset_flags & 4) >> 2
             flag_syn = (offset_flags & 2) >> 1
             flag_fin = offset_flags & 1
-            print((src_port,dest_port,sqc,ack,offset_flags,offset,flag_urg,flag_ack, flag_psh,flag_rst,flag_syn,flag_fin))
+            print((src_port,dest_port,sqc,ack,offset_flags,offset,flag_urg,flag_ack, flag_psh,flag_rst,flag_syn,flag_fin))'''
