@@ -1,4 +1,7 @@
-*/__pycache__
-*/test*.py
-*/lista.txt
-*/packet.txt
+__pycache__
+test*.py
+lista.txt
+packets.*
+db.sqlite3
+venv
+/home/jose/Documentos/IFRN_POO/traceroute
