@@ -15,3 +15,24 @@ Este projeto oferece uma oportunidade de aprender e comparar diferentes algoritm
 
 ### Bogo Sort
   Bogo sort (também conhecido como Stupid sort), é um algoritmo de ordenação extremamente ineficiente. É baseado na reordenação aleatória dos elementos. Não é utilizado na prática, mas pode ser usado no ensino de algoritmos mais eficientes.
+
+---
+# SORTING RANDOM LISTS WITH OOP IN PYTHON
+
+This is a study project focusing on the use of Object-Oriented Programming (OOP) in Python to create list sorters instantiated as objects. In this project, the implementation of methods, including private methods, for the manipulation and organization of lists was also carried out.
+
+This project provides an opportunity to learn and compare different sorting algorithms, as well as understand the implementation of OOP in Python.
+## Sorting Algorithms Used:
+### Bubble Sort
+
+Bubble sort, or bubble sort, is one of the simplest sorting algorithms. The idea is to traverse the array multiple times, and in each pass, float the largest element to the top of the sequence.
+### Selection Sort
+
+Selection sort is a sorting algorithm based on always passing the smallest value in the array to the first position (or the largest depending on the required order), then the second smallest value to the second position, and so on successively with the remaining n-1 elements, until the last two elements.
+### Insertion Sort
+
+Insertion Sort is a sorting algorithm that, given a structure, builds a final array with one element at a time, one insertion at a time. Like quadratic sorting algorithms, it is quite efficient for problems with small inputs, being the most efficient among algorithms of this sorting order.
+
+### Bogo Sort
+
+Bogo sort (also known as Stupid sort) is an extremely inefficient sorting algorithm. It is based on the random rearrangement of elements. It is not used in practice but can be used in the teaching of more efficient algorithms.
